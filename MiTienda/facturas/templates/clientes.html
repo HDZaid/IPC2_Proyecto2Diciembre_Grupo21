@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{%load static %}
+{% block content %}
+<div>
+    <h1>ESTAMOS EN CLIENTES </h1>
+    {% for i in clientes %}
+    <h2>{{i.dpi}}</h2>
+    <h2>{{i.nit}}</h2>
+    <h2>{{i.nombre}}</h2>
+    {% endfor %}
+
+</div>
+{% endblock %}
