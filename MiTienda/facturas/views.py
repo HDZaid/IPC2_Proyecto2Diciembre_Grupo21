@@ -11,3 +11,10 @@ def clientes_view(request):
         'clientes': clientes,
     }
     return render(request, 'clientes.html')
+
+def productos_view(request):
+    productos = Producto.objects.all()
+    context = {
+        'productos': productos,
+    }
+    return render(request, 'productos.html')

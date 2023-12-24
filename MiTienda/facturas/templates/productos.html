@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{%load static %}
+{% block content %}
+<div>
+    <h1>ESTAMOS EN PRODUCTOS </h1>
+    {% for i in productos %}
+    <h2>{{i.codigo}}</h2>
+    <h2>{{i.nombre}}</h2>
+    <h2>{{i.precio}}</h2>
+    <h2>{{i.cantidad}}</h2>
+    {% endfor %}
+
+</div>
+{% endblock %}
