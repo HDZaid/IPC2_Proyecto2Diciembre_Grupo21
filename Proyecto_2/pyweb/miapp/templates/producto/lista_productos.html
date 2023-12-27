@@ -1,0 +1,26 @@
+<!-- lista_productos.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Productos</h2>
+
+    <!-- Menú de Opciones -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'nuevo_producto' %}">Agregar Producto</a></li>
+            <!-- Agrega más opciones según tus necesidades -->
+        </ul>
+    </nav>
+
+    <!-- Lista de Productos -->
+    <ul class="productos-lista">
+        {% for producto in productos %}
+            <li>
+                {{ producto.nombre }} - {{ producto.precio }}
+                <a href="{% url 'detalle_producto' pk=producto.pk %}">Detalles</a>
+                <a href="{% url 'editar_producto' pk=producto.pk %}">Editar</a>
+                <a href="{% url 'eliminar_producto' pk=producto.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

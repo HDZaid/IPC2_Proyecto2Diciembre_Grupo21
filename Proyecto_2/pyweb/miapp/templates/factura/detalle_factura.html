@@ -1,0 +1,41 @@
+<!-- detalle_factura.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Detalles de la Factura #{{ factura.pk }}</h2>
+
+    <p><strong>Cliente:</strong> {{ factura.cliente.nombre }} (NIT: {{ factura.cliente.nit }})</p>
+    <p><strong>Dirección del Cliente:</strong> {{ factura.cliente.direccion }}</p>
+    <p><strong>Fecha:</strong> {{ factura.fecha }}</p>
+
+    <h3>Productos:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detalle in detalles %}
+                <tr>
+                    <td>{{ detalle.producto.nombre }}</td>
+                    <td>{{ detalle.producto.descripcion }}</td>
+                    <td>{{ detalle.producto.precio }}</td>
+                    <td>{{ detalle.cantidad }}</td>
+                    <td>{{ detalle.subtotal }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><strong>Total:</strong> {{ total_factura }}</p>
+
+    <br>
+
+    <!-- Botón de regreso -->
+    <a href="{% url 'lista_facturas' %}" class="factura-link btn">Regresar a la Lista de Facturas</a>
+{% endblock %}

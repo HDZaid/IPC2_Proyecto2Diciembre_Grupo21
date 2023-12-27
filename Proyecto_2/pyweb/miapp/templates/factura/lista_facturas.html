@@ -1,0 +1,41 @@
+<!-- lista_facturas.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Facturas</h2>
+    
+    <!-- Menú de Opciones -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'crear_factura' %}" class="factura-link">Crear Factura</a></li>
+            <!-- Agrega más opciones según tus necesidades -->
+        </ul>
+    </nav>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Número de Factura</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for factura in facturas %}
+                <tr>
+                    <td>{{ factura.pk }}</td>
+                    <td>{{ factura.cliente.nombre }}</td>
+                    <td>{{ factura.fecha }}</td>
+                    <td>
+                        <a href="{% url 'detalle_factura' pk=factura.pk %}">Ver Detalles</a> |
+                        <a href="{% url 'editar_factura' pk=factura.pk %}">Editar</a> |
+                        <a href="{% url 'eliminar_factura' pk=factura.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'crear_factura' %}" class="factura-link">Crear Nueva Factura</a>
+{% endblock %}
