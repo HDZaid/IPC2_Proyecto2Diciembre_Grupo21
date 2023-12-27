@@ -7,7 +7,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path('miapp/', pagina_inicio, name='pagina_inicio'),
+    path('', pagina_inicio, name='pagina_inicio'),
     # URLs para los productos
     path('productos/', lista_productos, name='lista_productos'),
     path('producto/<int:pk>/', detalle_producto, name='detalle_producto'),
