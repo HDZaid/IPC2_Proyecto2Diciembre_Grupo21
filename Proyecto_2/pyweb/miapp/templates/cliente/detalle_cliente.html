@@ -2,15 +2,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
     <h2>Detalles del Cliente</h2>
 
-    <ul>
-        <li><strong>NIT:</strong> {{ cliente.nit }}</li>
-        <li><strong>Nombre:</strong> {{ cliente.nombre }}</li>
-        <li><strong>Dirección:</strong> {{ cliente.direccion }}</li>
-    </ul>
+        <table class="table">
+            <thead class="table-dark">
+              <tr>
+                <th>Nombre</th>
+                <th>Nit</th>
+                <th>Dirección</th>
+              </tr>
+            </thead>  
+        <!-- <a href="{% url 'nuevo_cliente' %}">Agregar Cliente</a> -->
 
-    <a href="{% url 'editar_cliente' pk=cliente.pk %}" class="detalle-cliente-btn">Editar Cliente</a> |
-    <a href="{% url 'eliminar_cliente' pk=cliente.pk %}" class="detalle-cliente-btn">Eliminar Cliente</a> |
-    <a href="{% url 'lista_clientes' %}" class="detalle-cliente-btn">Volver a la lista de clientes</a>
+       
+            <div class="container mt-3"></div>
+                <tbody>
+                    <tr>
+                         <td>{{ cliente.nombre }}</td>
+                        <td>{{ cliente.nit }}</td>
+                        <td>{{ cliente.direccion }}</td>
+                        <td><a href="{% url 'editar_cliente' pk=cliente.pk %}" class="btn btn-success mr-2">Editar</a></td>
+                        <td><a href="{% url 'eliminar_cliente' pk=cliente.pk %}" class="btn btn-danger     ">Eliminar</a></td>
+                        <td><a  href="{% url 'lista_clientes' %}" class="btn btn-primary">Regresar</a></td>
+                     </tr>
+                </tbody>  
+            </div> 
 {% endblock %}
+       
+
