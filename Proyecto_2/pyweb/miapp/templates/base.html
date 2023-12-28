@@ -20,16 +20,32 @@
         }
 
         header {
-            background-color: #4a5765;
+            background-color: #0a0a23;
             padding: 10px;
             text-align: center;
-            color: white;
+            color: rgb(255, 255, 255);
         }
 
+
         nav {
-            background-color: #4a5765;
+            background-color: #001243;
             padding: 10px;
         }
+
+       /* .menuNav{
+            background-color: #002ead;
+            padding: 10px;
+            
+        }*/
+
+        .botonMenu:hover {
+        background-color: #ffffff; /* Fondo blanco */
+        color: #000000; /* Letra negra */
+        border-radius: 6px;
+        transition: background-color 0.3s, color 0.3s; /* Transición suave */
+        }
+
+    
 
         nav ul {
             list-style-type: none;
@@ -45,7 +61,7 @@
 
         nav a {
             text-decoration: none;
-            color: white;
+            color: rgb(255, 255, 255);
             font-weight: bold;
         }
 
@@ -54,8 +70,8 @@
         }
 
         footer {
-            background-color: #4a5765;
-            color: white;
+            background-color: #0a0a23;
+            color: rgb(255, 255, 255);
             text-align: center;
             padding: 10px;
             position: fixed;
@@ -63,12 +79,13 @@
             width: 100%;
         }
         
-        .factura-link {
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-            margin-right: 20px;
+        .factura-link:hover {
+            background-color: #ffffff; /* Fondo blanco */
+        color: #000000; /* Letra negra */
+        border-radius: 6px;
+        transition: background-color 0.5s, color 0.3s; /* Transición suave */
         }
+
     </style>
 </head>
 <body>
@@ -78,14 +95,16 @@
     </header>
 
     <!-- Menú de Navegación -->
-    <nav>
-        <ul>
-            <li><a href="{% url 'lista_productos' %}">Lista de Productos</a></li>
-            <li><a href="{% url 'lista_clientes' %}">Lista de Clientes</a></li>
-            <li><a href="{% url 'lista_facturas' %}" class="factura-link">Lista de Facturas</a></li> 
-            <!-- Agrega más opciones según tus necesidades -->
-        </ul>
-    </nav>
+    <div class="menuNav">
+        <nav>
+            <ul>
+                <li><a href="{% url 'lista_productos' %}" class="botonMenu">Lista de Productos  </a></li>
+                <li><a href="{% url 'lista_clientes' %}"  class="botonMenu">Lista de Clientes</a></li>
+                <li><a href="{% url 'lista_facturas' %}" class="factura-link">Lista de Facturas</a></li> 
+            </ul>
+        </nav>
+
+    </div>
 
     <!-- Contenido de la página -->
     <section>
