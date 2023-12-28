@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Producto, Cliente, Factura, DetalleFactura
 from .forms import ProductoForm, ClienteForm, FacturaForm, DetalleFacturaForm
+from django.db.models import Q
 
 # Funciones para Listas para los productos
 def lista_productos(request):
@@ -161,6 +162,29 @@ def eliminar_factura(request, pk):
         return redirect('lista_facturas')
 
     return render(request, 'factura/eliminar_factura.html', {'factura': factura})
+
+# Funcion para Buscar
+def buscar(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+
+        if query:
+            # Realiza la búsqueda en los modelos de Producto, Cliente y Factura
+            productos = Producto.objects.filter(
+                Q(nombre__icontains=query) | Q(descripcion__icontains=query)
+            )
+
+            clientes = Cliente.objects.filter(
+                Q(nombre__icontains=query) | Q(direccion__icontains=query)
+            )
+
+            facturas = Factura.objects.filter(
+                Q(cliente__nit__icontains=query)
+            )
+
+            return render(request, 'buscar/buscar.html', {'productos': productos, 'clientes': clientes, 'facturas': facturas, 'query': query})
+    
+    return render(request, 'buscar/buscar.html')  # Renderiza una página vacía si no hay consulta
 
 # miapp
 def pagina_inicio(request):

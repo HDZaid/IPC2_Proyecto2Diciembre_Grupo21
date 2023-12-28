@@ -3,7 +3,7 @@ from .views import pagina_inicio
 from .views import (
     lista_productos, detalle_producto, nuevo_producto, editar_producto, eliminar_producto, lista_clientes,
     detalle_cliente, nuevo_cliente, editar_cliente, eliminar_cliente, crear_factura, editar_factura, lista_facturas,
-    detalle_factura, eliminar_factura
+    detalle_factura, eliminar_factura, buscar
 )
 
 urlpatterns = [
@@ -29,4 +29,6 @@ urlpatterns = [
     path('facturas/editar/<int:pk>/', editar_factura, name='editar_factura'),
     path('facturas/eliminar/<int:pk>/', eliminar_factura, name='eliminar_factura'),
     
+    # Urls para buscar
+    path('buscar/', buscar, name='buscar'),
 ]

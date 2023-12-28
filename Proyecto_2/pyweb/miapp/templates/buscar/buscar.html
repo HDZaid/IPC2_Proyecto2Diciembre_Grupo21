@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Resultados de la búsqueda para "{{ query }}"</h2>
+
+    {% if productos %}
+        <h3>Resultados de Productos</h3>
+        {% for producto in productos %}
+            <div class="resultado-detalle">
+                <p><strong>Nombre del producto:</strong> {{ producto.nombre }}</p>
+                <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                <p><strong>Precio:</strong> {{ producto.precio }}</p>
+                <p><strong>Cantidad:</strong> {{ producto.stock }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if clientes %}
+        <h3>Resultados de Clientes</h3>
+        {% for cliente in clientes %}
+            <div class="resultado-detalle">
+                <p><strong>NIT:</strong> {{ cliente.nit }}</p>
+                <p><strong>Nombre:</strong> {{ cliente.nombre }}</p>
+                <p><strong>Dirección:</strong> {{ cliente.direccion }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if facturas %}
+        <h3>Resultados de Facturas</h3>
+        {% for factura in facturas %}
+            <div class="resultado-detalle">
+                <p><strong>Nombre del cliente:</strong> {{ factura.cliente.nombre }}</p>
+                <p><strong>NIT:</strong> {{ factura.cliente.nit }}</p>
+                <p><strong>Fecha:</strong> {{ factura.fecha }}</p>
+                <p><strong>Dirección:</strong> {{ factura.cliente.direccion }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

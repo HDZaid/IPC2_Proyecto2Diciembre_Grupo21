@@ -24,4 +24,7 @@ class DetalleFacturaForm(forms.ModelForm):
         model = DetalleFactura
         fields = ['producto', 'cantidad']
 
+# Clase form para buscar
+class BusquedaForm(forms.Form):
+    query = forms.CharField(label='Buscar')
     
