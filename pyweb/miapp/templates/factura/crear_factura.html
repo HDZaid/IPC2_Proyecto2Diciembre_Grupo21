@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Crear Nueva Factura</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ factura_form.as_p }}
+        {{ detalle_form.as_p }}
+
+        <input type="submit" value="Guardar Factura">
+    </form>
+
+    <a href="{% url 'lista_facturas' %}" class="factura-link">Volver a la Lista de Facturas</a>
+{% endblock %}

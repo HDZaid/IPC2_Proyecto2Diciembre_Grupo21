@@ -1,0 +1,76 @@
+ul.productos-lista {
+    list-style: none;
+    padding: 0;
+}
+
+ul.productos-lista li {
+    margin-bottom: 10px; 
+}
+
+ul.productos-lista li a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 8px; 
+    background-color: #4CAF50; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; 
+}
+
+ul.productos-lista li a:hover {
+    background-color: #45a049; 
+}
+
+
+.cliente-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+a.cliente-btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 10px;
+    background-color: #4CAF50; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; 
+}
+
+a.cliente-btn:hover {
+    background-color: #45a049; 
+}
+
+
+a.detalle-cliente-btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 10px;
+    background-color: #4CAF50; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; 
+}
+
+a.detalle-cliente-btn:hover {
+    background-color: #45a049; 
+}
+
+.btn-eliminar {
+    background-color: #ff3333; 
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px; 
+    margin-right: 10px; 
+}
+
+
+.btn-cancelar {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px; 
+}

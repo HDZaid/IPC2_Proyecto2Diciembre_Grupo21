@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Editar Factura - {{ factura.numero }}</h1>
+
+    <p>Cliente: {{ factura.cliente.nombre }} (NIT: {{ factura.cliente.nit }})</p>
+    <p>Fecha: {{ factura.fecha }}</p>
+
+    <form method="post" action="{% url 'editar_factura' pk=factura.pk %}">
+        {% csrf_token %}
+        {{ detalle_form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+    <a href="{% url 'lista_facturas' %}" class="btn factura-link">Volver a la Lista de Facturas</a>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <h2><strong>FACTURA</strong> No. {{ factura.pk }}</h2>
+
+    <!-- modelo encabezado maestro-->
+    <table class="table">
+        <tr class="table-secondary">
+        <td><strong>Cliente: </strong> {{ factura.cliente.nombre }} (NIT: {{  factura.cliente.nit }})</td>
+        <td><strong>Fecha: </strong> {{  factura.fecha }}</td>
+         </tr>
+    </thead> 
+    <table class="table">
+        <tr class="table-secondary">
+        <td><strong>Dirección del Cliente: </strong> {{  factura.cliente.direccion }}</td>
+         </tr>
+    </thead> 
+
+    <!-- modelo tabla -->
+    <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead> 
+        <!-- datos detalle  -->
+            {% for detalle in detalles %}
+                <tr>
+                    <td>{{ detalle.producto.nombre }}</td>
+                    <td>{{ detalle.producto.descripcion }}</td>
+                    <td>{{ detalle.producto.precio }}</td>
+                    <td>{{ detalle.cantidad }}</td>
+                    <td>{{ detalle.subtotal }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><strong>Total:</strong> {{ total_factura }}</p>
+
+    <br>
+
+    <!-- Botón de regreso -->
+    <a href="{% url 'lista_facturas' %}" class="factura-link btn">Regresar a la Lista de Facturas</a>
+{% endblock %}

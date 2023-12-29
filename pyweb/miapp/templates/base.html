@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'esti_boto.css' %}">
+    <link rel="stylesheet" href="{% static 'esti_ap.css' %}">
+    <link rel="stylesheet" href="{% static 'factu_boto.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'esti_tab.css' %}">
+    <title>Página Lista</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0a0a23;
+            padding: 10px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+
+        nav {
+            background-color: #001243;
+            padding: 10px;
+        }
+
+        .botonMenu:hover {
+        background-color: #ffffff; 
+        color: #000000; 
+        border-radius: 6px;
+        transition: background-color 0.3s, color 0.3s; 
+        }
+
+    
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #0a0a23;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .factura-link:hover {
+            background-color: #ffffff; 
+        color: #000000; 
+        border-radius: 6px;
+        transition: background-color 0.5s, color 0.3s; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tienda IPC 2</h1>
+    </header>
+
+    <!-- Menú de Navegación -->
+    <div class="menuNav">
+        <nav>
+            <ul>
+                <li><a href="{% url 'lista_productos' %}" class="botonMenu">Lista de Productos  </a></li>
+                <li><a href="{% url 'lista_clientes' %}"  class="botonMenu">Lista de Clientes</a></li>
+                <li><a href="{% url 'lista_facturas' %}" class="factura-link">Lista de Facturas</a></li> 
+            </ul>
+        </nav>
+
+    </div>
+
+   
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+
+  
+    <footer>
+        © 2023 Mi Empresa XD. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
